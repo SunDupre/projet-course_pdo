@@ -14,5 +14,6 @@ CREATE TABLE Chiens (
   age INT,
   race VARCHAR(200),
   id_maitre INT,
-  FOREIGN KEY (id-maitre) REFERENCES Maitres(id),
+  FOREIGN KEY (id_maitre) REFERENCES Maitres(id),
+ 
 )
