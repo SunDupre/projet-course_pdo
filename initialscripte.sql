@@ -4,7 +4,7 @@ CREATE USER "AdminToutou" @"localhost" IDENTIFIED BY "Annu@ireT0ut0u",
 GRANT ALL PRIVILEGES ON AnnuaireToutou.* TO "AdminToutou" @"localhost",
 FLUSH PRIVILEGES,
 CREATE TABLE Maitres (
-  id int primary key AUTO_INCREMENT,
+  id INT PRIMARY KEY AUTO_INCREMENT,
   nom VARCHAR(200),
   telephone VARCHAR(20),
 ) 
