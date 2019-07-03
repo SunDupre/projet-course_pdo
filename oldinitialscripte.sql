@@ -19,13 +19,4 @@ CREATE TABLE Chiens (
 -- Insérer un maitre
 INSERT INTO Maitres (nom, telephone) VALUE ('Bob', '0795647620');
 -- Insérer un chien
-INSERT INTO Chiens (nom, age, race, id_maitre) VALUE ('Nolly',2 , 'bouledog', 1);
--- Sélectionner tous les chiens
-SELECT id,nom,race FROM Chiens;
--- Sélectionner un chien avec lers information de son maitre
-SELECT * FROM Chiens INNER JOIN Maitres ON Chiens.id_maitre = maitre.id
--- Autre methode
-SELECT c.id, c.nom, c.race, m.nom AS nomMaitre, m.telephone 
-FROM Chiens c INNER JOIN Maitres m ON Chiens.id_maitre = maitre.id -- list
-WHERE c.id = 1 -- seulement un chien
--- 
+INSERT INTO Chien (nom, age, race, id_maitre) VALUE ('Nolly')
