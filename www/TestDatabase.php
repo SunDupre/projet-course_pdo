@@ -29,5 +29,7 @@ foreach($listeChiens as $chien){
 };
 //var_dump($listeChiens->errorInfo());
 echo "</ul>";
+// Appel de la function delete
+$resultat = $database ->deleteDog(2);
 
 ?>

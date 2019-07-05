@@ -85,7 +85,7 @@ class Database{
         $pdoStatement = $this->connexion->prepare(
             "SELECT c.id, c.nom, c.race, m.nom AS nomMaitre, m.telephone 
             FROM Chiens c INNER JOIN Maitres m ON Chiens.id_maitre = maitre.id -- list
-            WHERE c.id = 1"
+            WHERE c.id = idChien"
         );
         //On execute la requete
         $pdoStatement->execute(
@@ -95,6 +95,22 @@ class Database{
         $nomChiens = $pdoStatement->felchObjet("Chien");
         //je retourne la liste de chiens
         return $monChiens;
+    }
+    public function deleteDog($id){
+        //On prépare la requet
+        $pdoStatement = $this->connexion->prepare(
+            "DELETE  FROM `Chiens` WHERE id = 1");
+        //On execute la requete
+        $pdoStatement->execute(
+            array("idChien" => $id)
+        );
+        $errorCode = var_dump $pdoStatement->errorCode();
+        if($errorCode == 0){
+            return true;
+        }else{
+            return false;
+        }
+
     }
 }
 //Fin database
