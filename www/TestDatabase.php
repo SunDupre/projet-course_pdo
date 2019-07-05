@@ -1,6 +1,5 @@
 <?php
 require_once("Database.php");
-require_once("classChien.php");
 /*
 echo "<h1> Test de la database : </h1>"; 
 $database = new Database(); 
@@ -19,10 +18,16 @@ echo "<p> Un nouveau maitre inséré avec le numéro : $nouveauId </p>";
 $nouveauIdChien = $database->insertDog("gui", 7, "Staffie", 1); 
 echo "<p> Un nouveau Chien inséré avec le numéro : $nouveauIdChien </p>"; 
 */
-$dogs = $database->getAllChiens();
+// teste la récupération de la liste des chiens
+$listeChiens = $database->getAllDogs();
+echo "<ul>";
+foreach($listeChiens as $chien){
+    echo "<li>";
+    echo "Le numéro du chien : ".$chien->getId()." : ".$chien->getNom()
+    ." de race ".$chien->getRace();
+    echo "</li>";
+};
+//var_dump($listeChiens->errorInfo());
+echo "</ul>";
 
-foreach($dogs as $test)
-{
-    echo "<li>" .$test->getNom(), $test->getId(), $test->getRace(). "</li>";
-}
 ?>

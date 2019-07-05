@@ -1,50 +1,31 @@
-<!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>LAMP STACK</title>
-        <link rel="stylesheet" href="/assets/css/bulma.min.css">
+        <title>Exemple</title>
+		<meta charset="UTF-8">
     </head>
     <body>
-        <section class="hero is-medium is-info is-bold">
-            <div class="hero-body">
-                <div class="container has-text-centered">
-                    <h1 class="title">
-                        LAMP STACK
-                    </h1>
-                    <h2 class="subtitle">
-                        Your local development environment
-                    </h2>
-                </div>
-            </div>
-        </section>
-        <section class="section">
-            <div class="container">
-                <div class="columns">
-                    <div class="column">
-                        <h3 class="title is-3 has-text-centered">Environment</h3>
-                        <hr>
-                        <div class="content">
-                            <ul>
-                                <li><?php echo apache_get_version(); ?></li>
-                                <li>PHP <?php echo phpversion(); ?></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <h3 class="title is-3 has-text-centered">Quick Links</h3>
-                        <hr>
-                        <div class="content">
-                            <ul>
-                                <li><a href="http://localhost/phpinfo.php">phpinfo()</a></li>
-                                <li><a href="http://localhost/test_db.php">test db</a></li>
-                                <li><a href="http://localhost:8080">phpMyAdmin</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <?php 
+          $db = mysql_connect('localhost', 'login', 'password');
+
+          // on sélectionne la base
+          mysql_select_db('nom_de_la_base',$db);
+          
+          // on crée la requête SQL
+          $sql = 'SELECT nom,prenom,statut,date FROM famille_tbl';
+          
+          // on envoie la requête
+          $req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+          
+          // on fait une boucle qui va faire un tour pour chaque enregistrement
+          while($data = mysql_fetch_assoc($req))
+              {
+              // on affiche les informations de l'enregistrement en cours
+              echo '<b>'.$data['nom'].' '.$data['prenom'].'</b> ('.$data['statut'].')';
+              echo ' <i>date de naissance : '.$data['date'].'</i><br>';
+              }
+          
+          // on ferme la connexion à mysql
+          mysql_close(); 
+        ?>
     </body>
 </html>

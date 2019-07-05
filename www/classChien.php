@@ -1,6 +1,7 @@
 <?php
-class Chien {
+class Chien{
     //attributs
+    //Attributs spécifique au chien
     private $id;
     private $nom;
     private $age;
