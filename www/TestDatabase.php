@@ -31,5 +31,7 @@ foreach($listeChiens as $chien){
 echo "</ul>";
 // Appel de la function delete
 $resultat = $database ->deleteDog(2);
-
+if($resultat == true){
+    
+}
 ?>

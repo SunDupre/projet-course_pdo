@@ -28,4 +28,5 @@ SELECT * FROM Chiens INNER JOIN Maitres ON Chiens.id_maitre = maitre.id
 SELECT c.id, c.nom, c.race, m.nom AS nomMaitre, m.telephone 
 FROM Chiens c INNER JOIN Maitres m ON Chiens.id_maitre = maitre.id -- list
 WHERE c.id = 1 -- seulement un chien
--- 
+-- Pour effacer un chien
+DELETE  FROM `Chiens` WHERE id = 1
