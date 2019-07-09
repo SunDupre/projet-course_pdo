@@ -87,7 +87,7 @@ class Database{
     public function getAllDogs(){
         // On prépare la requete
         $pdoStatement = $this->connexion->prepare(
-            "SELECT id, nom, race FROM Chiens"
+            "SELECT id, nom, race, idMaitre FROM Chiens"
         );
 
         // On exécute la requete
@@ -145,7 +145,7 @@ class Database{
         }
 
     }
-
+    
     // Fonction pour mettre a jour les infos d'un chien
     public function updateDog($id, $nom, $age, $race){
         // Préparation de la requête
